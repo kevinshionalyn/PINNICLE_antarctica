@@ -3,11 +3,6 @@ import urllib.request
 import json
 from typing import Union
 
-# ----------------------------------------------------------------------
-# IMPORTANT: make sure this placeholder is the **actual GitHub Pages URL**
-# after Pages is enabled (see step 8).  Example:
-#   GITHUB_PAGES_BASE = "https://your-github-user.github.io/pinnicle-antarctica-data"
-# ----------------------------------------------------------------------
 GITHUB_PAGES_BASE = "https://kevinshionalyn.github.io/pinnicle_antarctica"
 
 def _url_for(path: str) -> str:

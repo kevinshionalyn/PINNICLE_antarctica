@@ -17,13 +17,15 @@ A mesh-free, physics-informed neural network (PINN) representation of the Antarc
 
 ## 1. Python
 
-### Installation (requieres Python 3.8+ and PyTorch)
+### Installation (requires Python 3.8+ and PyTorch)
 ```bash
 git clone [https://github.com/kevinshionalyn/PINNICLE_antarctica.git](https://github.com/kevinshionalyn/PINNICLE_antarctica.git)
 cd PINNICLE_antarctica
 pip install -e .
+```
 
-### Mesh-free product
+Mesh-free product
+```python
 from client.download import download_pt, load_tensor
 
 # Download raw tensor file to working directory
@@ -32,8 +34,10 @@ pt_path = download_pt()
 # Load as a torch.Tensor object
 tensor = load_tensor()
 print(f"Loaded tensor shape: {tensor.shape}")
+```
 
-### Custom mesh product
+Custom mesh product
+```python
 from client.download import download_pt, generate_mesh
 
 pt_path = download_pt()
@@ -50,30 +54,42 @@ mesh_file = generate_mesh(
     fmt="netcdf"             # "netcdf", "csv", or "json"
 )
 print(f"Mesh file written to: {mesh_file}")
+```
 
 ## 2. Command line
-### Using curl:
+Using curl:
+```bash
 curl -O [https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt](https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt)
-### Using wget:
+```
+Using wget:
+```bash
 wget [https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt](https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt)
+```
 
-### Custom mesh product
+Custom mesh product
+```bash
 curl -s [https://raw.githubusercontent.com/kevinshionalyn/PINNICLE_antarctica/main/client/mesh_cli.py](https://raw.githubusercontent.com/kevinshionalyn/PINNICLE_antarctica/main/client/mesh_cli.py) | \
 python3 - \
     --lon-step {choose_lon} --lat-step {choose_lat} --depth-step {choose-depth} \
     --format netcdf \
     --output my_antarctica_mesh.nc
+```
 
 ## 3. MATLAB
+```matlab
 url = '[https://kevinshionalyn.github.io/PINNICLE_antarctica/client/matlab/matlab_generate_mesh.m](https://kevinshionalyn.github.io/PINNICLE_antarctica/client/matlab/matlab_generate_mesh.m)';
 websave('matlab_generate_mesh.m', url);
+```
 
-### Mesh-free product
+Mesh-free product
+```matlab
 % Download the raw PyTorch model file directly to current folder
 url = '[https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt](https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt)';
 websave('antarctica_pinn_mosaic.pt', url);
+```
 
-### Custom Mesh Product
+Custom Mesh Product
+```matlab
 % Define grid specifications and generate file
 opts = struct(...
     'lon_step', {choose-lon}, ...
@@ -84,6 +100,7 @@ opts = struct(...
 );
 
 matlab_generate_mesh(opts);
+```
 
 ## License information
 This data product and associated files are released for free use under the MIT License.

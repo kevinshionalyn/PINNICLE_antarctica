@@ -78,7 +78,7 @@ python3 - \
 #### Setup MATLAB Helper Script
 ```matlab
 % Fetch the MATLAB grid generation helper
-url = '[https://kevinshionalyn.github.io/PINNICLE_antarctica/client/matlab/matlab_generate_mesh.m](https://kevinshionalyn.github.io/PINNICLE_antarctica/client/matlab/matlab_generate_mesh.m)';
+url = 'https://kevinshionalyn.github.io/PINNICLE_antarctica/client/matlab/matlab_generate_mesh.m';
 websave('matlab_generate_mesh.m', url);
 ```
 
@@ -86,7 +86,7 @@ Mesh-free product
 ```matlab
 % Download raw tensor file (only if not already present from git clone)
 if ~exist('data/antarctica_pinn_mosaic.pt', 'file')
-    url = '[https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt](https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt)';
+    url = 'https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt';
     websave('data/antarctica_pinn_mosaic.pt', url);
 end
 ```

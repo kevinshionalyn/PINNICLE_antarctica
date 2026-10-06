@@ -15,9 +15,9 @@ A mesh-free, physics-informed neural network (PINN) representation of the Antarc
 
 ---
 
-## 1. Python
+## 1. Installation
 
-### Installation (requires Python 3.8+ and PyTorch)
+### Mesh-free product
 ```bash
 # Ensure Git LFS is installed
 git lfs install
@@ -27,19 +27,7 @@ cd PINNICLE_antarctica
 pip install -e .
 ```
 
-Mesh-free product
-```python
-from client.download import download_pt, load_tensor
-
-# Download raw tensor file to working directory
-pt_path = download_pt()
-
-# Load as a torch.Tensor object
-tensor = load_tensor()
-print(f"Loaded tensor shape: {tensor.shape}")
-```
-
-Custom mesh product
+Python: custom mesh product (requires Python 3.8+ and PyTorch) 
 ```python
 from client.download import download_pt, generate_mesh
 

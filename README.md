@@ -7,11 +7,11 @@ A mesh-free, physics-informed neural network (PINN) representation of the Antarc
 ## Basic Data Information
 
 * **Raw Data Product**: A continuous, mesh-free model output stored as a PyTorch tensor (`antarctica_pinn_mosaic.pt`).
-* **Custom Grids**: Interpolated spatial products (NetCDF, CSV, or JSON) generated on-the-fly across custom ranges and resolutions (longitude, latitude, depth).
-* **Coordinate Systems & Units**:
-  * Longitude: Degrees (`-180` to `180`)
-  * Latitude: Degrees (`-90` to `0`)
-  * Depth: Meters (`0` to `3000`, positive down)
+* **Custom Grids**: Interpolated spatial products (NetCDF, CSV, or JSON) generated across custom ranges and resolutions (longitude, latitude, depth).
+* **Coordinate Reference System**: WGS 84 / Antarctic Polar Stereographic (EPSG:3031)  
+* Model Information
+    * Data sources: velocity, ....
+
 
 ---
 
@@ -19,7 +19,10 @@ A mesh-free, physics-informed neural network (PINN) representation of the Antarc
 
 ### Installation (requires Python 3.8+ and PyTorch)
 ```bash
-git clone [https://github.com/kevinshionalyn/PINNICLE_antarctica.git](https://github.com/kevinshionalyn/PINNICLE_antarctica.git)
+# Ensure Git LFS is installed
+git lfs install
+# clone repository
+git clone https://github.com/kevinshionalyn/PINNICLE_antarctica.git
 cd PINNICLE_antarctica
 pip install -e .
 ```

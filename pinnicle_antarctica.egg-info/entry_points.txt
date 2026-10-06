@@ -1,0 +1,2 @@
+[console_scripts]
+pinnicle-antarctica = client.mesh_cli:main

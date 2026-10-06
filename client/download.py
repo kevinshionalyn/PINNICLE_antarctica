@@ -70,4 +70,4 @@ def load_tensor(pt_path: Union[str, pathlib.Path] = None):
     import torch
     if pt_path is None:
         pt_path = download_pt()
-    return torch.load(pt_path, map_location="cpu", weights_only=True)
+    return torch.load(pt_path, map_location="cpu", weights_only=False)

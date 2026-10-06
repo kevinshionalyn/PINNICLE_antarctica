@@ -6,7 +6,7 @@ import numpy as np
 
 
 def generate_mesh(
-    pt_path: Union[str, pathlib.Path],
+    pt_path: Union[str, pathlib.Path] = "data/antarctica_pinn_mosaic.pt",,
     lon_range: Tuple[float, float] = (-180.0, 180.0),
     lat_range: Tuple[float, float] = (-90.0, -60.0),
     depth_range: Tuple[float, float] = (0.0, 3000.0),
@@ -48,7 +48,7 @@ def generate_mesh(
         raise FileNotFoundError(f"Tensor file not found at {pt_path}. Run download_pt() first.")
 
     # 1. Load trained PINN model tensor
-    model_data = torch.load(pt_path, map_location="cpu", weights_only=True)
+    model_data = torch.load(pt_path, map_location="cpu", weights_only=False)
 
     # 2. Construct evaluation grid vectors
     lons = np.arange(lon_range[0], lon_range[1] + lon_step, lon_step)

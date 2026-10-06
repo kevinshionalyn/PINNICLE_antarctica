@@ -1,3 +1,18 @@
+Metadata-Version: 2.4
+Name: pinnicle-antarctica
+Version: 0.1.0
+Summary: Python client and mesh generator for PINNICLE Antarctica data product
+Author: Kevin Shionalyn
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch
+Requires-Dist: numpy
+Requires-Dist: xarray
+Requires-Dist: netcdf4
+Dynamic: license-file
+
 # PINNICLE Antarctica Data Product
 
 A mesh-free, physics-informed neural network (PINN) representation of the Antarctic ice sheet generated using the open-source **[PINNICLE](https://github.com/ISSMteam/PINNICLE)** model.
@@ -15,7 +30,7 @@ A mesh-free, physics-informed neural network (PINN) representation of the Antarc
 
 ---
 
-## Installation
+## 1. Installation
 
 ### Mesh-free product
 ```bash
@@ -29,19 +44,20 @@ pip install -e .
 
 Python: custom mesh product (requires Python 3.8+ and PyTorch) 
 ```python
-from client.mesh_cli import generate_mesh
+from client.download import download_pt, generate_mesh
 
-# Interpolate continuous PINN tensor onto a structured NetCDF grid
+pt_path = download_pt()
+
+# Generate structured grid file
 mesh_file = generate_mesh(
-    pt_path="data/antarctica_pinn_mosaic.pt",
-    lon_range=(-180, 180),   # degrees East
-    lat_range=(-90, -60),    # degrees North
-    depth_range=(0, 3000),   # meters below surface
+    pt_path=pt_path,
+    lon_range=(-180, 180),   # degrees
+    lat_range=(-90, 0),      # degrees
+    depth_range=(0, 3000),   # meters
     lon_step=0.5,
     lat_step=0.5,
     depth_step=100,
-    fmt="netcdf",            # "netcdf", "csv", or "json"
-    output="antarctica_mesh.nc"
+    fmt="netcdf"             # "netcdf", "csv", or "json"
 )
 print(f"Mesh file written to: {mesh_file}")
 ```

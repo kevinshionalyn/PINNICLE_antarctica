@@ -34,13 +34,10 @@ from client.mesh_cli import generate_mesh
 # Interpolate continuous PINN tensor onto a structured NetCDF grid
 mesh_file = generate_mesh(
     pt_path="data/antarctica_pinn_mosaic.pt",
-    lon_range=(-180, 180),   # degrees East
-    lat_range=(-90, -60),    # degrees North
-    depth_range=(0, 3000),   # meters below surface
-    lon_step=0.5,
-    lat_step=0.5,
-    depth_step=100,
-    fmt="netcdf",            # "netcdf", "csv", or "json"
+    x_range=(-2670000, 3010000),   # EPSG:3031 Easting (m)
+    y_range=(-2310000, 2570000),   # EPSG:3031 Northing (m)
+    x_step=5000,                   # 5 km spacing
+    fmt="netcdf",                  # "netcdf", "csv", or "json"
     output="antarctica_mesh.nc"
 )
 print(f"Mesh file written to: {mesh_file}")
@@ -49,11 +46,11 @@ print(f"Mesh file written to: {mesh_file}")
 ## 2. Command line
 Using curl:
 ```bash
-curl -O [https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt](https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt)
+curl -L -O https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt)
 ```
 Using wget:
 ```bash
-wget [https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt](https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt)
+wget --no-check-certificate https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt
 ```
 
 Custom mesh product

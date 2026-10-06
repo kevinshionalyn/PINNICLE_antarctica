@@ -4,21 +4,17 @@ from typing import Tuple, Union
 import torch
 import numpy as np
 
-
 def generate_mesh(
-    pt_path: Union[str, pathlib.Path] = "data/antarctica_pinn_mosaic.pt",
-    lon_range: Tuple[float, float] = (-180.0, 180.0),
-    lat_range: Tuple[float, float] = (-90.0, -60.0),
-    depth_range: Tuple[float, float] = (0.0, 3000.0),
-    lon_step: float = 0.5,
-    lat_step: float = 0.5,
-    depth_step: float = 100.0,
+    pt_path: str = "data/antarctica_pinn_mosaic.pt",
+    x_range: tuple[float, float] = (-2670000.0, 3010000.0),
+    y_range: tuple[float, float] = (-2310000.0, 2570000.0),
+    x_step: float = 5000.0,
+    y_step: float = 5000.0,
     fmt: str = "netcdf",
-    output: Union[str, pathlib.Path] = "antarctica_mesh.nc"
-) -> pathlib.Path:
-    """
-    Interpolate continuous PINN tensor model output onto a structured spatial grid.
-    
+    output: str = "antarctica_issm_grid.nc"
+) -> str:
+    """Interpolate PINNICLE mosaic tensor grid onto custom EPSG:3031 grid."""
+
     Parameters
     ----------
     pt_path : str or pathlib.Path

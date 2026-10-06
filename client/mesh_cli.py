@@ -6,7 +6,7 @@ import numpy as np
 
 
 def generate_mesh(
-    pt_path: Union[str, pathlib.Path] = "data/antarctica_pinn_mosaic.pt",,
+    pt_path: Union[str, pathlib.Path] = "data/antarctica_pinn_mosaic.pt",
     lon_range: Tuple[float, float] = (-180.0, 180.0),
     lat_range: Tuple[float, float] = (-90.0, -60.0),
     depth_range: Tuple[float, float] = (0.0, 3000.0),

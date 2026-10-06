@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+
+# Generated mesh outputs
+*.nc
+*.csv
+*.json
+
+# OS files
+.DS_Store

@@ -27,7 +27,8 @@ cd PINNICLE_antarctica
 pip install -e .
 ```
 
-Python: custom mesh product (requires Python 3.8+ and PyTorch) 
+## Python
+Custom mesh product (requires Python 3.8+ and PyTorch) 
 ```python
 from client.mesh_cli import generate_mesh
 
@@ -43,7 +44,7 @@ mesh_file = generate_mesh(
 print(f"Mesh file written to: {mesh_file}")
 ```
 
-## 2. Command line
+## Command line
 Using curl (mesh-free):
 ```bash
 curl -L -O https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt)
@@ -73,7 +74,7 @@ python3 - \
 
 
 
-### MATLAB
+## MATLAB
 
 #### Setup MATLAB Helper Script
 ```matlab

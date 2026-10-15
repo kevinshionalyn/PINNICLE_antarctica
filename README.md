@@ -9,8 +9,11 @@ A mesh-free, physics-informed neural network (PINN) representation of the Antarc
 * **Raw Data Product**: A continuous, mesh-free model output stored as a PyTorch tensor (`antarctica_pinn_mosaic.pt`).
 * **Custom Grids**: Interpolated spatial products (NetCDF, CSV, or JSON) generated across custom ranges and resolutions (longitude, latitude, depth).
 * **Coordinate Reference System**: WGS 84 / Antarctic Polar Stereographic (EPSG:3031)  
-* Model Information
-    * Data sources: velocity, ....
+* Data used:
+    * Ice velocity map, NASA/MEaSUREs, 450 m spacing, J. Mouginot
+    * Surface mass balance, RACMO, 917 kg/m^3 ice density, M. van den Broeke
+    * Surface elevation, BedMachinev4.1, M. Morlighem
+    * Ice thickness flight tracks, BedMachine source data
 
 
 ---

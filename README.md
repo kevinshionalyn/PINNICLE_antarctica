@@ -40,7 +40,7 @@ mesh_file = generate_mesh(
     pt_path="data/antarctica_pinn_mosaic.pt",
     x_range=(-2670000, 3010000),   # EPSG:3031 Easting (m)
     y_range=(-2310000, 2570000),   # EPSG:3031 Northing (m)
-    x_step=5000,                   # 5 km spacing
+    x_step=500,                   # 500 m spacing
     fmt="netcdf",                  # "netcdf", "csv", or "json"
     output="antarctica_mesh.nc"
 )
@@ -61,7 +61,7 @@ curl (custom-mesh):
 ```bash
 curl -sL https://raw.githubusercontent.com/kevinshionalyn/PINNICLE_antarctica/main/client/mesh_cli.py | \
 python3 - \
-    --x-step 5000 --y-step 5000 \
+    --x-step 500 --y-step 500 \
     --format netcdf \
     --output antarctica_issm_grid.nc
 ```
@@ -70,7 +70,7 @@ CLI command (custom-mesh):
 ```bash
 curl -sL https://raw.githubusercontent.com/kevinshionalyn/PINNICLE_antarctica/main/client/mesh_cli.py | \
 python3 - \
-    --x-step 5000 --y-step 5000 \
+    --x-step 500 --y-step 500 \
     --format netcdf \
     --output antarctica_issm_grid.nc
 ```
@@ -101,8 +101,8 @@ Custom Mesh Product
 opts = struct(...
     'x_range', [-2670000, 3010000], ... % Easting (m)
     'y_range', [-2310000, 2570000], ... % Northing (m)
-    'x_step', 5000, ...                 % 5 km spacing
-    'y_step', 5000, ...                 % 5 km spacing
+    'x_step', 500, ...                 % 500 m spacing
+    'y_step', 500, ...                 % 500 m spacing
     'format', 'netcdf', ...             % 'netcdf', 'csv', or 'json'
     'output', 'antarctica_issm_grid.nc' ...
 );

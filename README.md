@@ -50,11 +50,11 @@ print(f"Mesh file written to: {mesh_file}")
 ## Command line
 Using curl (mesh-free):
 ```bash
-curl -L -O https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt)
+curl -L -O https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt
 ```
 Using wget (mesh-free):
 ```bash
-wget --no-check-certificate https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt
+wget https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt
 ```
 
 curl (custom-mesh):
@@ -65,16 +65,6 @@ python3 - \
     --format netcdf \
     --output antarctica_issm_grid.nc
 ```
-
-CLI command (custom-mesh):
-```bash
-curl -sL https://raw.githubusercontent.com/kevinshionalyn/PINNICLE_antarctica/main/client/mesh_cli.py | \
-python3 - \
-    --x-step 500 --y-step 500 \
-    --format netcdf \
-    --output antarctica_issm_grid.nc
-```
-
 
 
 ## MATLAB

@@ -1,12 +1,14 @@
 {
-    "data_product_name": "Antarctic PINN Median-Compiled Mosaic",
+    "data_product_name": "Antarctic PINN Median-Compiled Mesh-Free Mosaic",
+    "representation": "mesh_free_point_cloud",
+    "num_points": 500000,
     "global_bbox": [
         -2710000.0,
         3050000.0,
         -2350000.0,
         2610000.0
     ],
-    "resolution_m": 14436.09022556391,
+    "target_grid_resolution_m": 400.0,
     "num_tiles": 117,
     "random_seeds_compared": [
         "1234",
@@ -15,9 +17,11 @@
     ],
     "output_variables": [
         "bed_elevation",
+        "bed_elevation_std",
         "surface_elevation",
         "ice_thickness",
         "velocity_u",
-        "velocity_v"
+        "velocity_v",
+        "cumulative_weights"
     ]
 }

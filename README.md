@@ -6,7 +6,7 @@ A mesh-free, physics-informed neural network (PINN) representation of the Antarc
 
 ## Basic Data Information
 
-* **Raw Data Product**: A continuous, mesh-free model output stored as a PyTorch tensor (`antarctica_pinn_mosaic.pt`).
+* **Raw Data Product**: A continuous, mesh-free model output stored as a PyTorch tensor (`pinn_mesh_free_antarctica_medians_mosaic.pt`).
 * **Custom Grids**: Interpolated spatial products (NetCDF, CSV, or JSON) generated across custom ranges and resolutions (longitude, latitude, depth).
 * **Coordinate Reference System**: WGS 84 / Antarctic Polar Stereographic (EPSG:3031)  
 * Data used:
@@ -37,10 +37,10 @@ from client.mesh_cli import generate_mesh
 
 # Interpolate continuous PINN tensor onto a structured NetCDF grid
 mesh_file = generate_mesh(
-    pt_path="data/antarctica_pinn_mosaic.pt",
+    pt_path="data/pinn_mesh_free_antarctica_medians_mosaic.pt",
     x_range=(-2670000, 3010000),   # EPSG:3031 Easting (m)
     y_range=(-2310000, 2570000),   # EPSG:3031 Northing (m)
-    x_step=500,                   # 500 m spacing
+    x_step=500,                   # 500 m spacing (also sets y_step unless it is separately assigned)
     fmt="netcdf",                  # "netcdf", "csv", or "json"
     output="antarctica_mesh.nc"
 )

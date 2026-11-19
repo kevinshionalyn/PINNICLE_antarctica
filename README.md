@@ -40,7 +40,7 @@ mesh_file = generate_mesh(
     pt_path="data/antarctica_pinn_mosaic.pt",
     x_range=(-2670000, 3010000),   # EPSG:3031 Easting (m)
     y_range=(-2310000, 2570000),   # EPSG:3031 Northing (m)
-    x_step=5000,                   # 5 km spacing
+    x_step=500,                   # 500 m spacing
     fmt="netcdf",                  # "netcdf", "csv", or "json"
     output="antarctica_mesh.nc"
 )
@@ -50,31 +50,21 @@ print(f"Mesh file written to: {mesh_file}")
 ## Command line
 Using curl (mesh-free):
 ```bash
-curl -L -O https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt)
+curl -L -O https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt
 ```
 Using wget (mesh-free):
 ```bash
-wget --no-check-certificate https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt
+wget https://kevinshionalyn.github.io/PINNICLE_antarctica/data/antarctica_pinn_mosaic.pt
 ```
 
 curl (custom-mesh):
 ```bash
 curl -sL https://raw.githubusercontent.com/kevinshionalyn/PINNICLE_antarctica/main/client/mesh_cli.py | \
 python3 - \
-    --x-step 5000 --y-step 5000 \
+    --x-step 500 --y-step 500 \
     --format netcdf \
     --output antarctica_issm_grid.nc
 ```
-
-CLI command (custom-mesh):
-```bash
-curl -sL https://raw.githubusercontent.com/kevinshionalyn/PINNICLE_antarctica/main/client/mesh_cli.py | \
-python3 - \
-    --x-step 5000 --y-step 5000 \
-    --format netcdf \
-    --output antarctica_issm_grid.nc
-```
-
 
 
 ## MATLAB
@@ -101,8 +91,8 @@ Custom Mesh Product
 opts = struct(...
     'x_range', [-2670000, 3010000], ... % Easting (m)
     'y_range', [-2310000, 2570000], ... % Northing (m)
-    'x_step', 5000, ...                 % 5 km spacing
-    'y_step', 5000, ...                 % 5 km spacing
+    'x_step', 500, ...                 % 500 m spacing
+    'y_step', 500, ...                 % 500 m spacing
     'format', 'netcdf', ...             % 'netcdf', 'csv', or 'json'
     'output', 'antarctica_issm_grid.nc' ...
 );

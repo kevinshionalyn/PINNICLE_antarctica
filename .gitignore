@@ -12,3 +12,4 @@ dist/
 
 # OS files
 .DS_Store
+client/.ipynb_checkpoints/mesh_cli-checkpoint.py
